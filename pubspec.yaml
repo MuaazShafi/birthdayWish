@@ -40,6 +40,7 @@ dependencies:
   chewie: ^1.2.2
   full_screen_image_null_safe: ^2.0.0
   get: ^4.6.5
+  liquid_progress_indicator: ^0.4.0
 
 dev_dependencies:
   flutter_test:

@@ -5,8 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:get/get.dart';
 
-
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -17,12 +15,14 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   late ConfettiController _controller;
   late Timer _timer;
-  int _start = 0;
+  int age = 10;
+  int _progress = 0;
 
   @override
   void initState() {
     super.initState();
-    _controller = ConfettiController(duration: const Duration(seconds: 26));
+    // startTimer();
+    _controller = ConfettiController(duration: Duration(seconds: age));
   }
 
   @override
@@ -103,21 +103,21 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [
                       Positioned(
                         child: SizedBox(
-                          width: size.width * 0.4,
-                          height: size.width * 0.4,
-                          child: CircularProgressIndicator.adaptive(
-                            backgroundColor: Colors.grey.shade800,
-                            valueColor:
-                                const AlwaysStoppedAnimation(Colors.pinkAccent),
-                            strokeWidth: 10,
-                            value: _start * .039,
-                          ),
-                        ),
+                            width: size.width * 0.4,
+                            height: size.width * 0.4,
+                            child: CircularProgressIndicator.adaptive(
+                              strokeWidth: 10,
+                              backgroundColor: Colors.grey.shade800,
+                              valueColor: const AlwaysStoppedAnimation(
+                                  Colors.pinkAccent),
+                              value: _progress / age,
+                            )
+                            ),
                       ),
                       Align(
                         alignment: Alignment.center,
                         child: Text(
-                          "$_start",
+                          "$_progress",
                           style: TextStyle(
                             color: Colors.pinkAccent,
                             fontSize: size.width * 0.15,
@@ -154,13 +154,17 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            Get.snackbar(
-              "Please Wait",
-              "According to your age the timer will run",
-              snackPosition: SnackPosition.BOTTOM,
-            );
+            // Get.snackbar(
+            //   "Please Wait",
+            //   "According to your age the timer will run",
+            //   snackPosition: SnackPosition.BOTTOM,
+            // );
             startTimer();
-            _controller.play();
+            setState(() {
+              _progress = 0; // Reset the start value to 0
+            });
+            _controller.play(); // Start the confetti animation
+            startTimer();
           },
           backgroundColor: const Color(0xff13195b),
           child: const Icon(
@@ -179,7 +183,7 @@ class _HomeScreenState extends State<HomeScreen> {
     _timer = Timer.periodic(
       oneSec,
       (Timer timer) {
-        if (_start == 26) {
+        if (_progress == age) {
           setState(() {
             timer.cancel();
             Navigator.push(context,
@@ -187,7 +191,7 @@ class _HomeScreenState extends State<HomeScreen> {
           });
         } else {
           setState(() {
-            _start++;
+            _progress++;
           });
         }
       },
