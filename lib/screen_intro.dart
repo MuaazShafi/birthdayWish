@@ -8,6 +8,11 @@ class Introduction extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: Center(
+          child: Container(
+            height: 120,
+            width: 120,
+            color: Colors.red,
+          ),
         ),
       ),
     );
