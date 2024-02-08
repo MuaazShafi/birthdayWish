@@ -1,5 +1,6 @@
 import 'package:birthday/views/screens/screen_home.dart';
-import 'package:birthday/views/screens/screen_info.dart';
+import 'package:birthday/views/screens/screen_info1.dart';
+import 'package:birthday/views/screens/screen_on_boarding.dart';
 import 'package:birthday/views/screens/screen_splash.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,7 +17,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Sizer(
       builder: (context, orientation, deviceType) => GetMaterialApp(
-        home: ScreenInfo(),
+        home: ScreenOnBoarding(),
+        // home: HomeScreen(),
         debugShowCheckedModeBanner: false,
       ),
     );

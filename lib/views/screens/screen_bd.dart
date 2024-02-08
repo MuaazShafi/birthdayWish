@@ -1,6 +1,5 @@
 import 'package:birthday/helpers/constants.dart';
 import 'package:birthday/views/layout/layout_birthday_images.dart';
-import 'package:birthday/views/layout/layout_birthday_video.dart';
 import 'package:birthday/views/layout/layout_birthday_wish.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -10,7 +9,7 @@ class BdScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 3,
+      length: 2,
       child: Builder(
         builder: (BuildContext context) {
           return SafeArea(
@@ -19,7 +18,7 @@ class BdScreen extends StatelessWidget {
               appBar: AppBar(
                 backgroundColor: BDWishColor.appColor,
                 title: Text(
-                  "Happy BirthDay Shoniiii",
+                  "Happy BirthDay Shal",
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
@@ -30,7 +29,7 @@ class BdScreen extends StatelessWidget {
                 centerTitle: true,
               ),
               body: DefaultTabController(
-                length: 3,
+                length: 2,
                 child: Column(
                   children: [
                     TabBar(
@@ -56,22 +55,18 @@ class BdScreen extends StatelessWidget {
                         Tab(
                           text: "Images",
                         ),
-                        Tab(
-                          text: "Video",
-                        ),
                       ],
                     ).paddingSymmetric(
                       horizontal: 20.sp,
-                      vertical: 15.sp,
+                      vertical: 5.sp,
                     ),
                     Expanded(
                       child: TabBarView(
                         children: [
                           WishLayout(),
                           ImagesLayout(),
-                          VideoPlayerScreen(videoPath: 'images/bdGirl.mp4'),
                         ],
-                      ).paddingOnly(top: 10.sp),
+                      ),
                     )
                   ],
                 ),

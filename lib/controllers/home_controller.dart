@@ -32,7 +32,7 @@ class HomeController extends GetxController {
     timer = Timer.periodic(
       oneSec,
       (Timer timer) {
-        if (progress == age) {
+        if (progress == 27) {
           timer.cancel();
           controllerConfetti.stop();
           progress.value = 0;

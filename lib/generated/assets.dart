@@ -3,21 +3,12 @@ class Assets {
   Assets._();
 
   static const String imagesAbc = 'images/abc.jpg';
-  static const String imagesBd (1) = 'images/bd (1).jpg';
-  static const String imagesBd (10) = 'images/bd (10).jpg';
-  static const String imagesBd (2) = 'images/bd (2).jpg';
-  static const String imagesBd (3) = 'images/bd (3).jpg';
-  static const String imagesBd (4) = 'images/bd (4).jpg';
-  static const String imagesBd (5) = 'images/bd (5).jpg';
-  static const String imagesBd (6) = 'images/bd (6).jpg';
-  static const String imagesBd (7) = 'images/bd (7).jpg';
-  static const String imagesBd (8) = 'images/bd (8).jpg';
-  static const String imagesBd (9) = 'images/bd (9).jpg';
-  static const String imagesBdGirl = 'images/bdGirl.mp4';
   static const String imagesBdboy = 'images/bdboy.jpg';
   static const String imagesCute kiss = 'images/cute kiss.png';
   static const String imagesFunnyFace = 'images/funnyFace.png';
+  static const String imagesNo = 'images/no.gif';
   static const String imagesPaper = 'images/paper.png';
   static const String imagesSplash = 'images/splash.png';
+  static const String imagesYes = 'images/yes.gif';
 
 }

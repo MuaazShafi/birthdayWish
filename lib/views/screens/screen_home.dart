@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import 'package:liquid_progress_indicator_v2/liquid_progress_indicator.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -19,16 +20,15 @@ class HomeScreen extends StatelessWidget {
         body: Stack(
           children: [
             Padding(
-              padding: EdgeInsets.only(top: screenHeight* 0.28),
+              padding: EdgeInsets.only(top: screenHeight * 0.28),
               child: Container(
                 height: screenHeight,
                 width: screenWidth,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
                     fit: BoxFit.cover,
-                    opacity: 0.4,
-                    image: AssetImage(
-                      'images/bd (8).jpg',
+                    image: NetworkImage(
+                      "https://drive.google.com/uc?export=view&id=1Lbr2i779rojXHZdr0t1-UYoM0fzYVlXd",
                     ),
                   ),
                 ),
@@ -51,7 +51,9 @@ class HomeScreen extends StatelessWidget {
                     width: screenWidth,
                     decoration: const BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage('images/abc.jpg'),
+                        image: NetworkImage(
+                          "https://img.freepik.com/free-vector/happy-birthday-lettering-with-golden-letters_52683-35047.jpg?size=626&ext=jpg&ga=GA1.1.87170709.1707264000&semt=ais",
+                        ),
                         fit: BoxFit.fill,
                       ),
                     ),
@@ -84,12 +86,12 @@ class HomeScreen extends StatelessWidget {
                           height: screenWidth * 0.4,
                           child: Obx(() {
                             return CircularProgressIndicator.adaptive(
-                              strokeWidth: 10,
+                              strokeWidth: 15,
                               backgroundColor: Colors.grey.shade800,
                               valueColor: AlwaysStoppedAnimation(
                                 BDWishColor.appColor,
                               ),
-                              value: controller.progress / controller.age.value,
+                              value: controller.progress / 27,
                             );
                           }),
                         ),
@@ -127,19 +129,18 @@ class HomeScreen extends StatelessWidget {
             ),
           ],
         ),
-        bottomNavigationBar: SizedBox(
-          height: MediaQuery.of(context).size.height * .08,
-          child: BottomAppBar(
-            shape: CircularNotchedRectangle(),
-            color: BDWishColor.appColor,
-          ),
-        ),
+        // bottomNavigationBar: SizedBox(
+        //   height: MediaQuery.of(context).size.height * .08,
+        //   child: BottomAppBar(
+        //     shape: CircularNotchedRectangle(),
+        //     color: BDWishColor.appColor,
+        //   ),
+        // ),
         floatingActionButton: FloatingActionButton(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),
           ),
           onPressed: () {
-
             controller.startTimer();
             controller.progress.value = 0;
             controller.controllerConfetti.play();
@@ -150,11 +151,9 @@ class HomeScreen extends StatelessWidget {
             size: 40,
             color: Colors.white,
           ),
-        ),
+        ).paddingOnly(bottom: 15.sp),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       ),
     );
   }
-
-
 }
